@@ -1,0 +1,14 @@
+[
+  {
+    "title": "A Book",
+    "imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
+    "description": "This is an awesome book!",
+    "price": 19
+  },
+  {
+    "title": "Vladimir",
+    "imageUrl": "https://ruined.dev/_next/image/?url=https%3A%2F%2Fddragon.leagueoflegends.com%2Fcdn%2Fimg%2Fchampion%2Ftiles%2FVladimir_0.jpg&w=640&q=75",
+    "description": "it was my favourite lol champion",
+    "price": 3150
+  }
+]
