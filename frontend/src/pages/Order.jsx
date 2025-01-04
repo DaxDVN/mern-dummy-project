@@ -9,7 +9,7 @@ const Order = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetchWithAuth("http://localhost:5000/orders");
+        const res = await fetchWithAuth("/orders");
         if (res.ok) {
           const data = await res.json();
           setOrders(data);

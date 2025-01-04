@@ -4,14 +4,14 @@ import { useFetchWithAuth } from "../http";
 
 const Cart = () => {
   const navigate = useNavigate();
- const { fetchWithAuth } = useFetchWithAuth();
+  const { fetchWithAuth } = useFetchWithAuth();
   const [products, setProducts] = useState([]);
   const [reload, setReload] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetchWithAuth("http://localhost:5000/cart");
+        const res = await fetchWithAuth("/cart");
         if (res.ok) {
           const data = await res.json();
           setProducts(data.products);
@@ -29,7 +29,7 @@ const Cart = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetchWithAuth(`http://localhost:5000/cart/${id}`, {
+      const res = await fetchWithAuth(`/cart/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -47,7 +47,7 @@ const Cart = () => {
   const handleOrder = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetchWithAuth("http://localhost:5000/orders", {
+      const res = await fetchWithAuth("/orders", {
         method: "POST",
       });
       if (res.ok) {

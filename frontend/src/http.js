@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-
+export const portURL = "https://mern-dummy-project.onrender.com"
 export const useFetchWithAuth = () =>
 {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ export const useFetchWithAuth = () =>
   {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(url, {
+      const res = await fetch(portURL + url, {
         ...options,
         headers: {
           ...options.headers,

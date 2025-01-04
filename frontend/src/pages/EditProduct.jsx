@@ -1,23 +1,20 @@
 import { useNavigate, useParams } from "react-router-dom";
 import ProductForm from "../components/ProductForm";
-import { useFetchWithAuth } from "../http";
+import { portURL, useFetchWithAuth } from "../http";
 import { useState } from "react";
 
 const EditProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(""); // Để lưu thông báo lỗi
- const { fetchWithAuth } = useFetchWithAuth();
+  const { fetchWithAuth } = useFetchWithAuth();
   const handleEdit = async (input) => {
     try {
-      const res = await fetchWithAuth(
-        `http://localhost:5000/admin/products/${id}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(input),
-        }
-      );
+      const res = await fetchWithAuth(`/admin/products/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(input),
+      });
 
       if (res.ok) {
         navigate("/admin");
@@ -33,7 +30,7 @@ const EditProduct = () => {
 
   const fetchData = async (setInput) => {
     try {
-      const res = await fetch(`http://localhost:5000/admin/products/${id}`);
+      const res = await fetch(portURL + `/admin/products/${id}`);
       if (res.ok) {
         const data = await res.json();
         setInput(data);

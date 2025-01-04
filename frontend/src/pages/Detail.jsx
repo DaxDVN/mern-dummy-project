@@ -11,7 +11,7 @@ const Detail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetchWithAuth(`http://localhost:5000/products/${id}`);
+        const res = await fetchWithAuth(`/products/${id}`);
         if (res.ok) {
           const data = await res.json();
           setProduct(data);

@@ -1,11 +1,12 @@
 ﻿import ProductItem from "../components/ProductItem";
 import { useState, useEffect } from "react";
+import { portURL } from "../http";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch(portURL + "/products")
       .then((res) => {
         if (!res.ok) {
           setError("Failed to load products");

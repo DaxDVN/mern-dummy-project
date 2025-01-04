@@ -1,11 +1,12 @@
 import ProductItem from "../components/ProductItem";
 import { useState, useEffect } from "react";
+import { portURL } from "../http";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [toggleFetch, setToggleFetch] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:5000/admin/products")
+    fetch(portURL + "/admin/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [toggleFetch]);

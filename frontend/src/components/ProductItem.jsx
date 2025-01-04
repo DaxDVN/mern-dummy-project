@@ -4,14 +4,14 @@ import { useFetchWithAuth } from "../http";
 const ProductItem = ({ product, handleToggle }) => {
   const location = useLocation();
   const navigate = useNavigate();
- const { fetchWithAuth } = useFetchWithAuth();
+  const { fetchWithAuth } = useFetchWithAuth();
   const addToCart = async () => {
     const cartItem = {
       _id: product[`_id`],
       productPrice: product[`price`],
     };
     try {
-      const res = await fetchWithAuth("http://localhost:5000/cart", {
+      const res = await fetchWithAuth("/cart", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,12 +40,9 @@ const ProductItem = ({ product, handleToggle }) => {
 
   const deleteProduct = async () => {
     try {
-      const res = await fetchWithAuth(
-        `http://localhost:5000/admin/products/${product[`_id`]}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const res = await fetchWithAuth(`/admin/products/${product[`_id`]}`, {
+        method: "DELETE",
+      });
 
       if (res.ok) {
         handleToggle();

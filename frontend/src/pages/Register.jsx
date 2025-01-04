@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { portURL } from "../http";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const Register = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/register", {
+      const response = await fetch(portURL + "/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
